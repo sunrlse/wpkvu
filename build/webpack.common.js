@@ -1,8 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-console.log(process.env)
+// console.log(process.env)
 module.exports = {
     
     // entry: './src/index.js',
@@ -11,9 +12,8 @@ module.exports = {
         print: './src/print.js',
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist'),
-        // chunkFilename: '[name].bundle.js'
         // publicPath: '/'
     },
     module: {
@@ -21,7 +21,8 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
+                    // 'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
             },
@@ -46,28 +47,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             tilte: 'Output Management'
         }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
+        })
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'commonn'
         // }) // webpack 4+ removed this plugin
     ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            // name: true,
-            minSize: 30000,
-            minChunks: 1,
-            automaticNameDelimiter: '~',
-            cacheGroups: {
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    priority: -10
-                },
-                default: {
-                    minChunks: 2,
-                    priority: -20,
-                    reuseExistingChunk: true
-                }
-            }
-        }
-    }
 }
