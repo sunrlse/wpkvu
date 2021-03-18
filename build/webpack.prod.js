@@ -38,7 +38,10 @@ const config = {
             cleanStaleWebpackAssets: false, // 阻止watch变化时删除未改变的静态文件
         }),
         new HtmlWebpackPlugin({
-            tilte: 'Output Management'
+            tilte: 'forward prod',
+            favicon: './src/favicon.ico',
+            template: './src/index.html',
+            inject: true
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
