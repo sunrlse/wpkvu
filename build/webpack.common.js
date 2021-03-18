@@ -1,15 +1,12 @@
 const path = require('path')
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// console.log(process.env)
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+// const progressHandler = (percentage, message, ...args) => {
+//     console.info(percentage, message, ...args)
+// }
 module.exports = {
-    
-    // entry: './src/index.js',
     entry: {
         app: './src/index.js',
-        print: './src/print.js',
+        // print: './src/print.js',
     },
     output: {
         filename: '[name].js',
@@ -21,8 +18,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    // 'style-loader',
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader'
                 ]
             },
@@ -41,18 +37,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin({
-            cleanStaleWebpackAssets: false, // 阻止watch变化时删除未改变的静态文件
-        }),
-        new HtmlWebpackPlugin({
-            tilte: 'Output Management'
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css'
-        })
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'commonn'
-        // }) // webpack 4+ removed this plugin
+        new ProgressBarPlugin()
     ],
 }

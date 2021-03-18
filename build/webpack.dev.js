@@ -8,5 +8,8 @@ module.exports = merge(common, {
         contentBase: './dist',
         hot: true,
         port: 9000
-    }
+    },
+    plugins: [
+
+    ]
 })
