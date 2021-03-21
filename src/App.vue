@@ -30,6 +30,7 @@ export default {
     }
   },
   created() {
+    var a = 1
     console.log(this.$route.matched[0].components.default)
     this.currentLayout = this.$route.matched[0].components.default.layout
   }

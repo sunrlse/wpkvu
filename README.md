@@ -1,2 +1,2 @@
-https://github.com/sunrlse/wpkvue.git
+https://github.com/sunrlse/wpkvu.git
 

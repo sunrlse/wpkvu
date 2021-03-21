@@ -7,7 +7,8 @@
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js",
     "watch": "cross-env NODE_ENV=development webpack --watch",
     "devo": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
-    "server": "node server/server.js"
+    "server": "node server/server.js",
+    "precommit": "lint-staged"
   },
   "keywords": [],
   "author": "",
