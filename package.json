@@ -8,8 +8,8 @@
     "watch": "cross-env NODE_ENV=development webpack --watch",
     "devo": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
     "server": "node server/server.js",
-    "precommit": "cross-env NODE_ENV=production lint-staged",
-    "lint": "cross-env NODE_ENV=production eslint --ext .js,.vue ./src"
+    "precommit": "lint-staged",
+    "lint": "eslint --ext .js,.vue ./src"
   },
   "keywords": [],
   "author": "",
