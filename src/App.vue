@@ -24,15 +24,13 @@ export default {
   },
   watch: {
     '$route'(val) {
-      console.log('watch ', val)
+      // console.log('watch ', val)
       let { layout } = val.matched[0].components.default
       this.currentLayout = layout
     }
   },
   created() {
-    var a = 1
-    var b = 2
-    console.log(this.$route.matched[0].components.default)
+    // console.log(this.$route.matched[0].components.default)
     this.currentLayout = this.$route.matched[0].components.default.layout
   }
 }
