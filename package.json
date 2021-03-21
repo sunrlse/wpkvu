@@ -8,6 +8,7 @@
     "watch": "cross-env NODE_ENV=development webpack --watch",
     "devo": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
     "server": "node server/server.js",
+    "precommit": "lint-staged",
     "lint": "cross-env NODE_ENV=production eslint --ext .js,.vue ./src"
   },
   "keywords": [],
@@ -59,12 +60,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "node_modules/.bin/eslint --fix",
+    "*.js": [
+      "node_modules/.bin/eslint --fix --ext .js --ignore-path .eslintignore",
+      "git add"
+    ],
+    "*.vue": [
+      "node_modules/.bin/eslint --fix --ext .vue --ignore-path .eslintignore",
       "git add"
     ]
   }
