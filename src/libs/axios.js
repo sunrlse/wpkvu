@@ -16,7 +16,7 @@ function request (options) {
   if (!options.noDocToken) {
     opt.headers.authorization = getToken()
   }
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const instance = axios.create(opt)
     instance.interceptors.request.use(
       config => {

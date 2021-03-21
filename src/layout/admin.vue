@@ -1,17 +1,20 @@
 <template>
-  <div id="app-center">
-    <Header></Header>
+  <div id="app-admin">
+    <aside>
+      menu
+    </aside>
     <main>
+      <Header></Header>
       <slot></slot>
+      <Footer></Footer>
     </main>
-    <Footer></Footer>
   </div>
 </template>
 <script>
 import Header from './Header'
 import Footer from './Footer'
 export default {
-  name: 'center',
+  name: 'admin',
   components: {
     Header,
     Footer

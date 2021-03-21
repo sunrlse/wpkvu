@@ -1,25 +1,21 @@
 <template>
-  <div>
-    <component :is="currentLayout">
-      <router-view></router-view>
-    </component>
-    <!-- <Header></Header>
-    <main>
-    </main>
-    <Footer></Footer> -->
-  </div>
+  <component :is="currentLayout">
+    <router-view></router-view>
+  </component>
+  <!-- <Header></Header>
+  <main>
+  </main>
+  <Footer></Footer> -->
 </template>
 <script>
 import plain from './layout/plain'
 import center from './layout/center'
-// import Header from './layout/Header'
-// import Footer from './layout/Footer'
+import admin from './layout/admin'
 export default {
   components: {
     plain,
     center,
-    // Header,
-    // Footer
+    admin
   },
   data() {
     return {

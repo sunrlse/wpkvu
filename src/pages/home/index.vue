@@ -3,6 +3,7 @@
     <h2>home</h2>
     <section>
       <router-link to="/blog">Blog</router-link>
+      <router-link to="/admin">Admin</router-link>
     </section>
   </div>
 </template>
