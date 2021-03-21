@@ -1,5 +1,4 @@
 .eslintrc.js
-.husky/
 node_modules
 dist/
 build/
