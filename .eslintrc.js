@@ -23,8 +23,8 @@ module.exports = {
         sessionStorage: true
     },
     "rules": {
-        "no-console": process.env.NODE_ENV === 'production' ? 'error' : 'warn', 
-        "no-unused-vars": process.env.NODE_ENV === 'production' ? 'error' : 'warn', 
-        "no-debugger": process.env.NODE_ENV === 'production' ? 'error' : 'warn'
+        "no-console": process.env.NODE_ENV === 'development' ? 'warn' : 'error', 
+        "no-unused-vars": process.env.NODE_ENV === 'development' ? 'warn' : 'error', 
+        "no-debugger": process.env.NODE_ENV === 'development' ? 'warn' : 'error'
     }
 }
