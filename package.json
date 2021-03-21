@@ -66,12 +66,10 @@
   },
   "lint-staged": {
     "*.js": [
-      "node_modules/.bin/eslint --fix --ext .js --ignore-path .eslintignore",
-      "git add"
+      "node_modules/.bin/eslint --fix --ext .js --ignore-path .eslintignore"
     ],
     "*.vue": [
-      "node_modules/.bin/eslint --fix --ext .vue --ignore-path .eslintignore",
-      "git add"
+      "node_modules/.bin/eslint --fix --ext .vue --ignore-path .eslintignore"
     ]
   }
 }
