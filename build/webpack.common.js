@@ -1,4 +1,5 @@
 const path = require('path')
+const { publicPath } = require('./public')
 const { VueLoaderPlugin } = require('vue-loader')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 // const progressHandler = (percentage, message, ...args) => {
@@ -12,7 +13,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/'
+        publicPath: publicPath
     },
     resolve: {
         extensions: ['.js', '.json', '.vue'],

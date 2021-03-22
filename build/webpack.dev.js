@@ -1,6 +1,8 @@
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
+const { publicPath } = require('./public')
 
 module.exports = merge(common, {
     mode: 'development',
@@ -8,7 +10,11 @@ module.exports = merge(common, {
     devServer: {
         contentBase: './dist',
         hot: true,
-        port: 9000
+        port: 9000,
+        historyApiFallback: {
+            index: path.join(publicPath, 'index.html')
+        }
+
     },
     resolve: {
         alias: {
