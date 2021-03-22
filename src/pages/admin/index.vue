@@ -3,6 +3,10 @@
     <h2>admin</h2>
     <section>
       <router-link to="/">Home</router-link>
+      <router-link to="/admin/user">User</router-link>
+    </section>
+    <section>
+      <router-view></router-view>
     </section>
   </div>
 </template>
@@ -13,6 +17,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .admin {
-  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
 }
 </style>

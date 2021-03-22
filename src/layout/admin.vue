@@ -1,13 +1,15 @@
 <template>
-  <div id="app-admin">
+  <div id="app-admin" class="flex">
     <aside>
       menu
     </aside>
-    <main>
+    <div id="container" class="flex">
       <Header></Header>
-      <slot></slot>
-      <Footer></Footer>
-    </main>
+      <main>
+
+        <slot></slot>
+      </main>
+    </div>
   </div>
 </template>
 <script>
@@ -21,3 +23,21 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+@import url('@style/admin.scss');
+#app-admin {
+  height: 100%;
+  aside {
+    width: 200px;
+    border-right: 1px solid #999;
+  }
+  #container {
+    flex: 1;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    overflow: auto;
+  }
+}
+</style>

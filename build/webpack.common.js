@@ -19,6 +19,8 @@ module.exports = {
         extensions: ['.js', '.json', '.vue'],
         alias: {
             '@': path.resolve(__dirname, '../src/'),
+            '@assets': path.resolve(__dirname, '../src/assets'),
+            '@style': path.resolve(__dirname, '../src/assets/style'),
             '@pages': path.resolve(__dirname, '../src/pages'),
             '@components': path.resolve(__dirname, '../src/components'),
             '@constants': path.resolve(__dirname, '../src/constants'),
