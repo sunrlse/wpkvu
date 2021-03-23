@@ -1,6 +1,6 @@
 <template>
   <div id="app-center">
-    <Header></Header>
+    <Header header-title="Dog Blog"></Header>
     <main>
       <slot></slot>
     </main>
@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-import Header from './Header'
-import Footer from './Footer'
+import Header from '@components/common/Header'
+import Footer from '@components/common/Footer'
 export default {
   name: 'center',
   components: {
@@ -18,3 +18,9 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+main {
+  padding: 30px;
+  min-height: calc(100vh - 100px);
+}
+</style>

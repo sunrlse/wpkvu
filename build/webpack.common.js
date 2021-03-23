@@ -5,6 +5,9 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 // const progressHandler = (percentage, message, ...args) => {
 //     console.info(percentage, message, ...args)
 // }
+function resolve(dir) {
+    return path.resolve(__dirname, dir)
+}
 module.exports = {
     entry: {
         app: './src/index.js',
@@ -12,18 +15,19 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../dist'),
+        path: resolve('../dist'),
         publicPath: publicPath
     },
     resolve: {
         extensions: ['.js', '.json', '.vue'],
         alias: {
-            '@': path.resolve(__dirname, '../src/'),
-            '@assets': path.resolve(__dirname, '../src/assets'),
-            '@style': path.resolve(__dirname, '../src/assets/style'),
-            '@pages': path.resolve(__dirname, '../src/pages'),
-            '@components': path.resolve(__dirname, '../src/components'),
-            '@constants': path.resolve(__dirname, '../src/constants'),
+            '@': resolve('../src/'),
+            '@assets': resolve('../src/assets'),
+            '@style': resolve('../src/assets/style'),
+            '@pages': resolve('../src/pages'),
+            '@components': resolve('../src/components'),
+            '@constants': resolve('../src/constants'),
+            '@ant-design/icons/lib/dist$': resolve('../src/components/antd/icons')
         }
     },
     module: {
@@ -58,23 +62,36 @@ module.exports = {
                     'babel-loader'
                 ]
             },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         'css-loader'
+            //     ]
+            // },
+            // {
+            //     test: /\.scss$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         'css-loader',
+            //         'sass-loader',
+            //     ]
+            // },
             {
-                test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /\.scss$/,
+                test: /\.less$/,
                 use: [
                     'vue-style-loader',
                     'css-loader',
                     {
-                        loader: 'sass-loader',
-                        options: {
-                            additionalData: `$blue: deepskyblue;`
-                        }
+                        loader: 'less-loader',
+                        // options: {
+                            // javascriptEnabled: true
+                            // lessOptions: {
+                            //     javascriptEnabled: true,
+                            //     strictMath: true,
+                            //     noIeCompat: true
+                            // }
+                        // }
                     }
                 ]
             },

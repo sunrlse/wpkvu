@@ -67,9 +67,9 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-$primary-color: #6976FF;
-$error-color: #ed4014;
+<style lang="less">
+@primary-color: #6976FF;
+@error-color: #ed4014;
 .cn-loading-bar {
     width: 100%;
     position: fixed;
@@ -82,11 +82,11 @@ $error-color: #ed4014;
         transition: width .2s linear;
 
         &-color-primary {
-            background-color: $primary-color;
+            background-color: @primary-color;
         }
 
         &-failed-color-error {
-            background-color: $error-color;
+            background-color: @error-color;
         }
     }
 }

@@ -24,7 +24,7 @@ function request (options) {
         return config
       },
       error => {
-        console.log('on request error ', error)
+        // console.log('on request error ', error)
         return Promise.resolve({
           header: {
             code: -1,
@@ -48,7 +48,7 @@ function request (options) {
         return data
       },
       error => {
-        console.log('on response error ', error)
+        // console.log('on response error ', error)
         if (error && error.response) {
           switch (error.response.status) {
             case 400:
@@ -107,7 +107,7 @@ function request (options) {
     //请求处理
     instance(options)
       .then((res) => {
-        console.log('then ', res)
+        // console.log('then ', res)
         if (res.header.code != 0) {
           LoadingBar.error()
         } else {
@@ -119,7 +119,7 @@ function request (options) {
       })
       .catch((error) => {
         LoadingBar.error()
-        console.log('cat error ', error)
+        // console.log('cat error ', error)
         resolve({
           header: {
             code: -3,

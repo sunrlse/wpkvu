@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@pages/home'
+// import Home from '@pages/home'
 // import Blog from '@pages/blog'
-const Blog = () => import('@pages/blog')
-import Admin from '@pages/admin'
-import AdminUser from '@pages/admin/user'
-import NotFoundComponent from '@pages/404'
+const Home = () => import(/* webpackChunkName: 'home' */ '@pages/home')
+const Blog = () => import(/* webpackChunkName: 'blog' */ '@pages/blog')
+const Admin = () => import(/* webpackChunkName: 'user' */ '@pages/admin')
+const AdminUser = () => import(/* webpackChunkName: 'user' */ '@pages/admin/user')
+const NotFoundComponent = () => import(/* webpackChunkName: 'notfound' */ '@pages/404')
+// import Admin from '@pages/admin'
+// import AdminUser from '@pages/admin/user'
+// import NotFoundComponent from '@pages/404'
 
 Vue.use(VueRouter)
 
@@ -26,6 +30,7 @@ const routes = [
     children: [
       {
         path: '/admin/user',
+        name: 'admin__user',
         component: AdminUser
       }
     ]

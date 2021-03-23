@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="blog-wrap">
     <h2>blogs</h2>
     <section>
-      <router-link to="/">Home</router-link>
+      <router-link to="/">Home </router-link>
     </section>
     <section>
-      loading...{{per}}
-      hh
+      不了不了...{{per}}s
     </section>
   </div>
 </template>
@@ -28,10 +27,18 @@ export default {
   },
   methods: {
     async getList() {
-      console.log('get list', music_list)
+      // console.log('get list', music_list)
       let { header, data } = await this.$axios.get(music_list, {})
-      console.log(header, data)
+      if (header && data) {
+        return
+      }
+      // console.log(header, data)
     }
   }
 }
 </script>
+<style lang="less" scoped>
+.blog-wrap {
+  color: orange;
+}
+</style>

@@ -1,28 +1,37 @@
 <template>
   <div class="user-manage">
-    <h2>user</h2>
-    <section>
-      <router-link to="/admin">Admin Sys</router-link>
-    </section>
+    <h2><a-icon type="line-chart" /> list</h2>
     <div>
-      <Counter />
-      <hr>
-      <Counter />
+      <a-button type="primary">
+        Primary
+      </a-button>
+    </div>
+    <div>
+      <counter />
+      <counter />
     </div>
   </div>
 </template>
 <script>
-import Counter from '@components/common/Counter'
+import counter from '@components/common/counter'
 export default {
-  // layout: 'admin'
+  layout: 'admin',
   components: {
-    Counter
+    counter
+  },
+  data() {
+    return {
+      
+    }
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .user-manage {
   color: #333;
   height: 2000px;
+  h2 {
+    // color: $blue;
+  }
 }
 </style>

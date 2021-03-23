@@ -16,6 +16,17 @@ module.exports = merge(common, {
         }
 
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
+            },
+        ]
+    },
     resolve: {
         alias: {
             vue: 'vue/dist/vue.js'

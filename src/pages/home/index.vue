@@ -12,8 +12,21 @@ export default {
   layout: 'plain',
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .home {
+  height: 100%;
   background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
+  h2 {
+    margin-bottom: 50px;
+    padding-top: 20px;
+    text-align: center;
+  }
+  section {
+    text-align: center;
+    a {
+      margin: 0 10px;
+      font-size: 18px;
+    }
+  }
 }
 </style>

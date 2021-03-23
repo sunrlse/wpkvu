@@ -6,8 +6,10 @@
 </template>
 <script>
 export default {
-  data: {
-    count: 0
+  data() {
+    return {
+      count: 0
+    }
   },
   methods: {
     increase() {

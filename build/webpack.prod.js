@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const common = require('./webpack.common')
 
 const config = {
@@ -31,9 +32,9 @@ const config = {
             filename: '[name].[contenthash].css',
             // chunkFilename: '[id].[contenthash:8].css'
         }),
-        // new UglifyJSPlugin({
-        //     // sourceMap: true
-        // }),
+        new UglifyJSPlugin({
+            // sourceMap: true
+        }),
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false, // 阻止watch变化时删除未改变的静态文件
         }),
@@ -45,7 +46,8 @@ const config = {
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
-        })
+        }),
+        new BundleAnalyzerPlugin()
     ],
     optimization: {
         minimizer: [
@@ -68,7 +70,7 @@ const config = {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendor',
                     minSize: 30000,
-                    // maxSize: 200000,
+                    maxSize: 500000,
                     minChunks: 1,
                     priority: -10
                 },

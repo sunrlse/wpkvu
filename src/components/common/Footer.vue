@@ -1,15 +1,15 @@
 <template>
-  <div id="app-plain">
-    <slot></slot>
-  </div>
+  <footer>company</footer>
 </template>
 <script>
 export default {
-  name: 'plain'
+  
 }
 </script>
 <style lang="less" scoped>
-#app-plain {
-  height: 100%;
+footer {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
 </style>

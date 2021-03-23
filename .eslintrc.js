@@ -24,7 +24,7 @@ module.exports = {
     },
     "rules": {
         "no-console": process.env.NODE_ENV === 'development' ? 'warn' : 'error', 
-        "no-unused-vars": process.env.NODE_ENV === 'development' ? 'warn' : 'error', 
+        "no-unused-vars": process.env.NODE_ENV === 'development' ? 'warn' : 'warn', 
         "no-debugger": process.env.NODE_ENV === 'development' ? 'warn' : 'error'
     }
 }

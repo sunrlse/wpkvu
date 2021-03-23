@@ -9,7 +9,7 @@ export default {
     layout: 'plain'
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .not-found-page {
     padding: 100px;
     text-align: center;
