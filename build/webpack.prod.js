@@ -13,8 +13,8 @@ const config = {
     mode: 'production',
     // devtool: 'source-map',
     output: {
-        filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js'
+        filename: 'js/[name].[contenthash:8].js',
+        // chunkFilename: 'js/[name].[contenthash].js'
     },
     module: {
         rules: [
@@ -24,12 +24,20 @@ const config = {
                     MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
-            }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'less-loader'
+                ]
+            },
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
+            filename: 'css/[name].[contenthash:8].css',
             // chunkFilename: '[id].[contenthash:8].css'
         }),
         new UglifyJSPlugin({
@@ -70,7 +78,7 @@ const config = {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendor',
                     minSize: 30000,
-                    maxSize: 500000,
+                    // maxSize: 500000,
                     minChunks: 1,
                     priority: -10
                 },

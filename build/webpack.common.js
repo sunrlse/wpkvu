@@ -32,12 +32,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: '\.html',
-            //     use: [
-            //         'html-loader'
-            //     ]
-            // },
             {
                 enforce: "pre",
                 test: /\.(js|vue)$/,
@@ -60,39 +54,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     'babel-loader'
-                ]
-            },
-            // {
-            //     test: /\.css$/,
-            //     use: [
-            //         'vue-style-loader',
-            //         'css-loader'
-            //     ]
-            // },
-            // {
-            //     test: /\.scss$/,
-            //     use: [
-            //         'vue-style-loader',
-            //         'css-loader',
-            //         'sass-loader',
-            //     ]
-            // },
-            {
-                test: /\.less$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader',
-                    {
-                        loader: 'less-loader',
-                        // options: {
-                            // javascriptEnabled: true
-                            // lessOptions: {
-                            //     javascriptEnabled: true,
-                            //     strictMath: true,
-                            //     noIeCompat: true
-                            // }
-                        // }
-                    }
                 ]
             },
             {
