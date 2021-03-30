@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import router from './router'
+import { createRouter } from './router'
 import App from './App.vue'
 import '@/assets/style/init.less'
 import axios from '@/libs/axios'
@@ -17,6 +17,6 @@ Vue.prototype.$loadingbar = LoadingBar
 Vue.use(antd)
 
 new Vue({
-    router,
+    router: createRouter(),
     render: h => h(App),
 }).$mount('#app')

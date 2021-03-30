@@ -7,6 +7,13 @@
     <section>
       不了不了...{{per}}s
     </section>
+    <section>
+      <input type="text" placeholder="input...">
+      <div class="boss">
+        <span>1</span>
+        <span>2</span>
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -40,5 +47,23 @@ export default {
 <style lang="less" scoped>
 .blog-wrap {
   color: orange;
+  input {
+    
+  }
+  input::-webkit-input-placeholder {
+    color: aqua;
+  }
+  .boss {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    span {
+      flex: 1;
+      background: chartreuse;
+    }
+    span:last-of-type {
+      background: chocolate;
+    }
+  }
 }
 </style>

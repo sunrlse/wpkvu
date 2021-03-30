@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js",
     "watch": "cross-env NODE_ENV=development webpack --watch",
-    "devo": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
     "server": "node server/server.js",
     "precommit": "lint-staged",
     "lint": "eslint --ext .js,.vue ./src",
@@ -41,6 +41,9 @@
     "lint-staged": "^10.2.0",
     "mini-css-extract-plugin": "^1.3.9",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^7.0.35",
+    "postcss-loader": "^4.0.0",
+    "postcss-preset-env": "^6.7.0",
     "progress-bar-webpack-plugin": "^2.1.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.2",
@@ -64,9 +67,17 @@
     "lodash": "^4.17.21",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
+    "vue-server-renderer": "^2.6.12",
     "vue-template-compiler": "^2.6.12",
     "vuex": "^3.6.2"
   },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "iOS >= 7",
+    "Android > 4.1",
+    "Firefox > 20"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

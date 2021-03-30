@@ -22,7 +22,22 @@ const config = {
                 test: /\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    'css-loader',
+                    {
+                        loader: "postcss-loader",
+                        // options: {
+                        //   postcssOptions: {
+                        //     plugins: [
+                        //       [
+                        //         "autoprefixer",
+                        //         {
+                        //           // 选项
+                        //         },
+                        //       ],
+                        //     ],
+                        //   },
+                        // },
+                    },
                 ]
             },
             {
@@ -30,6 +45,21 @@ const config = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    {
+                        loader: "postcss-loader",
+                        // options: {
+                        //   postcssOptions: {
+                        //     plugins: [
+                        //       [
+                        //         "autoprefixer",
+                        //         {
+                        //           // 选项
+                        //         },
+                        //       ],
+                        //     ],
+                        //   },
+                        // },
+                    },
                     'less-loader'
                 ]
             },
@@ -55,7 +85,7 @@ const config = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        new BundleAnalyzerPlugin()
+        // new BundleAnalyzerPlugin()
     ],
     optimization: {
         minimizer: [
@@ -63,7 +93,7 @@ const config = {
                 cache: true,
                 extractComments: false
             }),
-            new OptimizeCSSAssetsPlugin({})
+            // new OptimizeCSSAssetsPlugin({})
         ],
         splitChunks: {
             chunks: 'all', // 默认值async , initial,async,all

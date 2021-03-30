@@ -45,9 +45,9 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  routes
-})
-
-export default router
+export function createRouter() {
+  return new VueRouter({
+    mode: 'history',
+    routes
+  })
+}
