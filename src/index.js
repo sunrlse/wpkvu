@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import { createRouter } from './router'
-import 'amfe-flexible'
 import App from './App.vue'
 // import '@/assets/style/init.less'
 import axios from '@/libs/axios'

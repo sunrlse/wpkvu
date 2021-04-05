@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
-const px2rem = require('postcss-pxtorem')
+const px2viewport = require('postcss-px-to-viewport')
 const { publicPath } = require('./public')
 
 module.exports = merge(common, {
@@ -41,9 +41,8 @@ module.exports = merge(common, {
                         options: {
                             postcssOptions: {
                                 plugins: [
-                                    px2rem({
-                                        rootValue: 37.5,
-                                        propList: ['*']
+                                    px2viewport({
+                                        viewportWidth: 375
                                     })
                                 ]
                             }
@@ -62,9 +61,8 @@ module.exports = merge(common, {
                         options: {
                             postcssOptions: {
                                 plugins: [
-                                    px2rem({
-                                        rootValue: 37.5,
-                                        propList: ['*']
+                                    px2viewport({
+                                        viewportWidth: 375
                                     })
                                 ]
                             }

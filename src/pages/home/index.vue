@@ -36,7 +36,7 @@ export default {
 .home {
   height: 100%;
   // background-image: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
-  font-size: 18px; // Px PX 忽略
+  font-size: 18Px; // Px PX 忽略
   .van-col {
     height: 50px;
     background: chocolate;

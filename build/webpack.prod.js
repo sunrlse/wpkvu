@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const px2viewport = require('postcss-px-to-viewport')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
@@ -37,18 +38,17 @@ const config = {
                     'css-loader',
                     {
                         loader: "postcss-loader",
-                        // options: {
-                        //   postcssOptions: {
-                        //     plugins: [
-                        //       [
-                        //         "autoprefixer",
-                        //         {
-                        //           // 选项
-                        //         },
-                        //       ],
-                        //     ],
-                        //   },
-                        // },
+                        options: {
+                          postcssOptions: {
+                            plugins: [
+                              [
+                                px2viewport({
+                                    viewportWidth: 375
+                                })
+                              ],
+                            ],
+                          },
+                        },
                     },
                 ]
             },
@@ -59,18 +59,17 @@ const config = {
                     'css-loader',
                     {
                         loader: "postcss-loader",
-                        // options: {
-                        //   postcssOptions: {
-                        //     plugins: [
-                        //       [
-                        //         "autoprefixer",
-                        //         {
-                        //           // 选项
-                        //         },
-                        //       ],
-                        //     ],
-                        //   },
-                        // },
+                        options: {
+                          postcssOptions: {
+                            plugins: [
+                              [
+                                px2viewport({
+                                    viewportWidth: 375
+                                })
+                              ],
+                            ],
+                          },
+                        },
                     },
                     'less-loader'
                 ]
@@ -130,6 +129,11 @@ const config = {
                 antd: {
                     name: 'antd',
                     test: /[\\/]node_modules[\\/]_?(ant-design-vue|@ant-design)(.*)/,
+                    priority: 20,
+                },
+                vant: {
+                    name: 'vant',
+                    test: /[\\/]node_modules[\\/]_?vant(.*)/,
                     priority: 20,
                 },
                 // default: {
