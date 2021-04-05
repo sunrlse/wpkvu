@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
@@ -8,11 +9,22 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist',
+        // contentBase: './dist',
         hot: true,
+        // inline: true, //开启页面自动刷新
+        // host: '0.0.0.0',
         port: 9000,
-        historyApiFallback: {
-            index: path.join(publicPath, 'index.html')
+        // historyApiFallback: {
+        //     index: path.join(publicPath, 'index.html')
+        // },
+        historyApiFallback: true,
+        proxy: {
+            '/wx-api': {
+                target: 'http://localhost:8087',
+                pathRewrite: { '^/wx-' : '/'},
+                // changeOrigin: true // 域名形式需要它
+            },
+            secure: false
         }
 
     },
@@ -51,10 +63,14 @@ module.exports = merge(common, {
         }
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            'APP_TITLE': JSON.stringify('开发环境')
+        }),
         new HtmlWebpackPlugin({
-            // tilte: 'forward dev',
             favicon: './src/favicon.ico',
             template: './src/index.html',
+            tilte: '开发环境', // 最后被变成了 这个插件默认值 Webpack App
             inject: true
         }),
     ]

@@ -2,18 +2,18 @@ const path = require('path')
 const Koa = require('koa')
 const koaStatic = require('koa-static')
 const { historyApiFallback } = require('koa2-connect-history-api-fallback')
-const compress = require('koa-compress')
+// const compress = require('koa-compress')
 
 // SSR
-const Vue = require('vue')
-const renderer = require('vue-server-renderer').createRenderer()
+// const Vue = require('vue')
+// const renderer = require('vue-server-renderer').createRenderer()
 
 const app = new Koa()
 
 const options = {
   threshold: 1024
 }
-app.use(compress(options))
+// app.use(compress(options))
 
 app.use(historyApiFallback()) // 这里要在static前面，不然无效果
 app.use(koaStatic(path.join(__dirname, './dist/')))

@@ -1,7 +1,8 @@
 export default {
   development: {
     // baseUrl: 'http://localhost:8000',
-    baseUrl: 'http://local.abc.com',
+    // baseUrl: 'http://local.abc.com',
+    baseUrl: ''
   },
   test: {
     baseUrl: 'https://test.abc.com',

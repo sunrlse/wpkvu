@@ -13,6 +13,7 @@ module.exports = {
         document: true,
         location: true,
         console: true,
+        alert: true,
         Promise: true,
         process: true,
         setInterval: true,
@@ -20,7 +21,12 @@ module.exports = {
         setTimeout: true,
         clearTimeout: true,
         localStorage: true,
-        sessionStorage: true
+        sessionStorage: true,
+        fetch: true,
+        // _: true,
+        require: true,
+        Vue: true,
+        VueRouter: true
     },
     "rules": {
         "no-console": process.env.NODE_ENV === 'development' ? 'warn' : 'error', 

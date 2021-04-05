@@ -8,6 +8,7 @@
       不了不了...{{per}}s
     </section>
     <section>
+      <button @click="req">请求</button>
       <input type="text" placeholder="input...">
       <div class="boss">
         <span>1</span>
@@ -40,6 +41,12 @@ export default {
         return
       }
       // console.log(header, data)
+    },
+    req() {
+      this.$axios.get('/wx-api/abc')
+      .then(res => {
+        // console.log(res)
+      })
     }
   }
 }

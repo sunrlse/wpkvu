@@ -1,4 +1,5 @@
 import axios from 'axios'
+// const axios = require('axios')
 import Cookie from 'js-cookie'
 import LoadingBar from '@/components/common/loading-bar'
 
@@ -142,6 +143,7 @@ export default function (config) {
     if (!/^https?:\/\//.test(url)) {
       url = this.apiPrefix + url
     }
+    // console.log(url)
     let get_opt = Object.assign({}, options, {
         method: 'get',
         url,

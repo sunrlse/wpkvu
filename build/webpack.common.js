@@ -18,6 +18,12 @@ module.exports = {
         path: resolve('../dist'),
         publicPath: publicPath
     },
+    stats: {
+        assets: true,
+        builtAt: true,
+        children: false, // 只隐藏modules， 会显示一行行 Child xxx plugin  xxx ， 两者同时为false，则这些行都不展示
+        modules: false, // 只隐藏children，还是会显示一行行减少后的信息，隐藏命令行构建过程中 [模块id] xxxx  [built] 一行一行的信息，
+    },
     resolve: {
         extensions: ['.js', '.json', '.vue'],
         alias: {
@@ -27,6 +33,7 @@ module.exports = {
             '@pages': resolve('../src/pages'),
             '@components': resolve('../src/components'),
             '@constants': resolve('../src/constants'),
+            '@libs': resolve('../src/libs'),
             '@ant-design/icons/lib/dist$': resolve('../src/components/antd/icons')
         }
     },
@@ -67,6 +74,13 @@ module.exports = {
                 use: [
                     'xml-loader'
                 ]
+            },
+            {
+                test: /\.html$/, 
+                exclude: /src\/index.html/,
+                use: {
+                  loader: 'html-loader'
+                }
             }
         ]
     },

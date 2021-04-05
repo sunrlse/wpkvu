@@ -1,5 +1,6 @@
 <template>
   <component :is="currentLayout">
+    <div v-wechat-title="$route.meta.title"></div>
     <router-view></router-view>
   </component>
   <!-- <Header></Header>

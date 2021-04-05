@@ -9,4 +9,5 @@ static
 store/*
 middleware/*
 start.js
+api.js
 postcss.config.js

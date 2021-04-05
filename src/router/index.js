@@ -1,53 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-// import Home from '@pages/home'
-// import Blog from '@pages/blog'
-const Home = () => import(/* webpackChunkName: 'home' */ '@pages/home')
-const Blog = () => import(/* webpackChunkName: 'blog' */ '@pages/blog')
-const Admin = () => import(/* webpackChunkName: 'user' */ '@pages/admin')
-const AdminUser = () => import(/* webpackChunkName: 'user' */ '@pages/admin/user')
-const NotFoundComponent = () => import(/* webpackChunkName: 'notfound' */ '@pages/404')
-// import Admin from '@pages/admin'
-// import AdminUser from '@pages/admin/user'
-// import NotFoundComponent from '@pages/404'
+import routes from './routes'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    component: Home
-  },
-  {
-    path: '/blog',
-    alias: '/bk',
-    component: Blog
-  },
-  {
-    path: '/admin',
-    component: Admin,
-    children: [
-      {
-        path: '/admin/user',
-        name: 'admin__user',
-        component: AdminUser
-      }
-    ]
-  },
-  // {
-  //   path: '/admin/user',
-  //   component: AdminUser
-  // },
-  {
-    path: '*',
-    component: NotFoundComponent
-  }
-]
-
 export function createRouter() {
-  return new VueRouter({
+  const router = new VueRouter({
     mode: 'history',
     routes
   })
+
+  router.beforeEach((to, from, next) => {
+    // const { title } = to.meta
+    // if (title) {
+    //   document.title = title
+    // }
+    if (isWeiXin()) {
+      alert('is wechat')
+      location.href = location.host + to.fullPath
+      return next()
+    }
+    next()
+  })
+
+  return router
+}
+
+function isWeiXin(){
+  var ua = window.navigator.userAgent.toLowerCase()
+  // var wechatInfo = window.navigator.userAgent.match(/MicroMessenger\\\/([\\d\\.]+)/i)
+  if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+    return true
+  }
+  return false
 }
