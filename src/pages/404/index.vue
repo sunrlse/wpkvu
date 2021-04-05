@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-    layout: 'plain'
+    
 }
 </script>
 <style lang="less" scoped>

@@ -44,6 +44,7 @@
     "postcss": "^7.0.35",
     "postcss-loader": "^4.0.0",
     "postcss-preset-env": "^6.7.0",
+    "postcss-pxtorem": "^5.1.1",
     "progress-bar-webpack-plugin": "^2.1.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.2",
@@ -61,10 +62,12 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "ant-design-vue": "^1.7.4",
     "axios": "^0.21.1",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.21",
+    "vant": "^2.12.11",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
     "vue-server-renderer": "^2.6.12",
@@ -73,11 +76,8 @@
     "vuex": "^3.6.2"
   },
   "browserslist": [
-    "last 2 version",
-    "> 1%",
     "iOS >= 7",
-    "Android > 4.1",
-    "Firefox > 20"
+    "Android >= 4.0"
   ],
   "husky": {
     "hooks": {

@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
+const px2rem = require('postcss-pxtorem')
 const { publicPath } = require('./public')
 
 module.exports = merge(common, {
@@ -34,7 +35,21 @@ module.exports = merge(common, {
                 test: /\.css$/,
                 use: [
                     'vue-style-loader',
-                    'css-loader'
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    px2rem({
+                                        rootValue: 37.5,
+                                        propList: ['*']
+                                    })
+                                ]
+                            }
+                        }
+
+                    },
                 ]
             },
             {
@@ -43,16 +58,20 @@ module.exports = merge(common, {
                     'vue-style-loader',
                     'css-loader',
                     {
-                        loader: 'less-loader',
-                        // options: {
-                            // javascriptEnabled: true
-                            // lessOptions: {
-                            //     javascriptEnabled: true,
-                            //     strictMath: true,
-                            //     noIeCompat: true
-                            // }
-                        // }
-                    }
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    px2rem({
+                                        rootValue: 37.5,
+                                        propList: ['*']
+                                    })
+                                ]
+                            }
+                        }
+
+                    },
+                    'less-loader'
                 ]
             },
         ]
