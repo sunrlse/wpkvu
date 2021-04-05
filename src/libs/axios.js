@@ -1,7 +1,7 @@
 import axios from 'axios'
 // const axios = require('axios')
 import Cookie from 'js-cookie'
-import LoadingBar from '@/components/common/loading-bar'
+// import LoadingBar from '@/components/common/loading-bar'
 
 function getToken () {
   return Cookie.get('xxx') || ''
@@ -21,7 +21,7 @@ function request (options) {
     const instance = axios.create(opt)
     instance.interceptors.request.use(
       config => {
-        LoadingBar.start()
+        // LoadingBar.start()
         return config
       },
       error => {
@@ -110,16 +110,16 @@ function request (options) {
       .then((res) => {
         // console.log('then ', res)
         if (res.header.code != 0) {
-          LoadingBar.error()
+          // LoadingBar.error()
         } else {
-          LoadingBar.finish()
+          // LoadingBar.finish()
         }
         resolve(res)
         
         return false
       })
       .catch((error) => {
-        LoadingBar.error()
+        // LoadingBar.error()
         // console.log('cat error ', error)
         resolve({
           header: {
