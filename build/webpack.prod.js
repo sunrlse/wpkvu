@@ -7,6 +7,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const common = require('./webpack.common')
 const CDN_LIST = require('./cdn_list')
 
@@ -98,6 +99,20 @@ const config = {
             tilte: '线上环境',
             cdnJsList: CDN_LIST.js_list,
             inject: true
+        }),
+        new PreloadWebpackPlugin({
+            rel: 'preload',
+            as(entry) {
+                if (/\.(woff2?|ttf|eot)$/.test(entry)) return 'font'
+            },
+            include: 'allAssets', // preload模块范围，其他取值为 initial allChunks allAssets
+            fileBlacklist: [/\.svg$/], // 资源黑名单
+            fileWhitelist: [/\.(woff2?|ttf|eot)$/] // 资源白名单
+        }),
+        new PreloadWebpackPlugin({
+            rel: 'prefetch',
+            include: 'asyncChunks',
+            fileWhitelist: [/(blog|user)\./],
         }),
         
         new BundleAnalyzerPlugin()

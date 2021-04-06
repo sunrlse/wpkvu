@@ -5,6 +5,9 @@
       <router-link to="/blog">Blog</router-link>
       <router-link to="/admin">Admin</router-link>
     </section>
+    <div>
+      <i class="iconfont icon-process"></i>Process
+    </div>
   </div>
 </template>
 <script>

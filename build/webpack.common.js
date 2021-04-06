@@ -64,10 +64,19 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpe?g|gif)$/,
+                test: /\.(png|jpe?g|gif)$/,
                 use: [
                     'file-loader'
                 ]
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'fonts/'
+                    }
+                }
             },
             {
                 test: /\.xml$/,
