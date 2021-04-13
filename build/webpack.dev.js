@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
 const px2rem = require('postcss-pxtorem')
+const writeSvg = require('postcss-write-svg')
 const { publicPath } = require('./public')
 
 module.exports = merge(common, {
@@ -12,8 +13,8 @@ module.exports = merge(common, {
     devServer: {
         // contentBase: './dist',
         hot: true,
-        // inline: true, //开启页面自动刷新
-        // host: '0.0.0.0',
+        inline: true, //开启页面自动刷新
+        host: '0.0.0.0',
         port: 9000,
         // historyApiFallback: {
         //     index: path.join(publicPath, 'index.html')
@@ -65,13 +66,21 @@ module.exports = merge(common, {
                                     px2rem({
                                         rootValue: 37.5,
                                         propList: ['*']
-                                    })
+                                    }),
+                                    writeSvg()
                                 ]
                             }
                         }
 
                     },
-                    'less-loader'
+                    'less-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            // common.less 自己的公共变量路径
+                            resources: [path.resolve(__dirname, '../src/assets/style/common.less')]
+                        }
+                    }
                 ]
             },
         ]
